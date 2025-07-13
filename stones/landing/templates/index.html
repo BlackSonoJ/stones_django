@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Камни</title>
+    <link rel="stylesheet" href="/static/landing/css/styles.css" />
+</head>
+
+<body>
+    <!-- Main -->
+    <header class="main">
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#materials">Каталог</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="main-overlay">
+            <div class="main-content">
+                <h1 class="main-title">{{ header.line1 }}<br /> {{ header.line2 }}
+                </h1>
+                <p class="main-subtitle">{{ header.subline }}</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services List -->
+    <section class="services" id="services">
+        {% for service in services %}
+        <div class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+            <div class="container">
+                {% if forloop.counter|divisibleby:2 %}
+                <div class="odd-body">
+                    <div class="img">
+                        <img src="{{ service.image.url }}" alt="{{ service.title }}">
+                    </div>
+                    <div class="odd-body-content">
+                        <div class="body-subtitle">
+                            <div class="divider"></div>
+                            <p>{{ service.subtitle }}</p>
+                        </div>
+                        <div class="body-title">
+                            <h1>{{ service.title }}</h1>
+                        </div>
+                        <div class="body-text">
+                            <p>{{ service.text }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="odd-body">
+                    <div class="odd-body-content">
+                        <div class="body-subtitle">
+                            <div class="divider"></div>
+                            <p>
+                                {{ service.subtitle }}
+                            </p>
+                        </div>
+
+                        <div class="body-title">
+                            <h1>
+                                {{ service.title }}
+                            </h1>
+                        </div>
+
+                        <div class="body-text">
+                            <p>
+                                {{ service.text }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <img class="img" src="{{ service.image.url }}" alt="">
+
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    <!-- Materials List -->
+    <section class="materials" id="materials">
+        <main class="page-content">
+            <div class="content-container">
+                <section class="features">
+                    <h2>Каталог камня</h2>
+                    <div class="image-grid">
+                        {% for material in materials %}
+                        <div class="image-card">
+                            <img src="{{ material.image.url }}" alt="">
+                            <p>
+                                {{ material.name }}
+                            </p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+        </main>
+    </section>
+    <!--    Contact    -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2>Связаться с нами</h2>
+            <p class="contact-subtitle">Мы всегда на связи в WhatsApp</p>
+            <a class="whatsapp-button" href="https://wa.me/79052812421" target="_blank">
+                Написать в WhatsApp
+            </a>
+        </div>
+    </section>
+    <!--    Footer    -->
+    <section class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Изделия из камня</h2>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#materials">Каталог</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <p>Тел: +7 (000) 000-00-00</p>
+                    <p>Email: info@example.com</p>
+                    <p>Адрес: г. Москва, ул. Каменная, д. 1</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Изделия из натурального камня. Все права защищены.</p>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

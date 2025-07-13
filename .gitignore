@@ -1,0 +1,4 @@
+/.venv
+/.vscode
+/_isort.cfg
+/_mypy.ini
