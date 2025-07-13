@@ -13,17 +13,15 @@ from landing.models import (
 class HeaderSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         line1 = validated_data.get("line1")
-        line2 = validated_data.get("line2")
         subline = validated_data.get("subline")
         return Header.objects.create(
             line1=line1,
-            line2=line2,
             subline=subline,
         )
 
     class Meta:
         model = Header
-        fields = ("line1", "line2", "subline")
+        fields = ("line1", "subline")
 
 
 class ServiceSerializer(serializers.ModelSerializer):
